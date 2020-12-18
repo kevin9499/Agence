@@ -1,1 +1,3 @@
-# angular-cfa-project
+# Project Unstar
+npm install 
+ng serve
