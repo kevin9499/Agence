@@ -1,0 +1,7 @@
+.not-found-root {
+  width: 100vw;
+  height: calc(100vh - (64px + 106px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

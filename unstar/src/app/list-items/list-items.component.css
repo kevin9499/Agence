@@ -1,0 +1,42 @@
+.list-item-root {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+}
+
+.ant-card-body {
+  display: none !important;
+}
+
+.list-items {
+  max-height: 42rem;
+  overflow-y: scroll;
+}
+
+.item {
+  margin-bottom: 1em;
+}
+
+.card-hr {
+  width: 80%;
+  background-color: #c2c2c2;
+  opacity: 0.7;
+}
+
+.add-to-fav {
+  width: 100%;
+  text-align: center;
+  color: #7a7a7a;
+}
+
+.add-to-fav:hover {
+  color: #1890ff;
+}
+
+.no-image {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

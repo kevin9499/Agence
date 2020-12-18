@@ -1,0 +1,18 @@
+<div class="logo" routerLink="/">
+    <img class="logo-img" src="../../assets/img/logo.png" width="40" height="40" alt="app logo">
+    <h1 class="logo-h1" nz-typography>UNSTAR</h1>
+</div>
+<ul nz-menu nzTheme="dark" nzMode="horizontal">
+  <li nz-menu-item routerLink="/mars" routerLinkActive="ant-menu-item-selected">Photo de Mars</li>
+  <li nz-menu-item routerLink="/astronomie" routerLinkActive="ant-menu-item-selected">Photo d'Astronomie</li>
+  <li nz-menu-item routerLink="/ma-collection" routerLinkActive="ant-menu-item-selected">Ma Collection</li>
+</ul>
+<div class="user-info" *ngIf="isLogin">
+  <nz-avatar class="user-avatar" nzIcon="user"></nz-avatar>
+  <p class="user-email">kevin9402@gmail.com</p>
+  <button class="logout-btn" nz-button nzType="primary" nzDanger (click)="handleLogout()">Logout</button>
+</div>
+<div class="user-info" *ngIf="!isLogin">
+  <button class="logout-btn" nz-button nzType="primary" (click)="handleLogin()">Login</button>
+</div>
+

@@ -1,0 +1,36 @@
+<div class="list-item-root">
+  <div class="list-items" nz-row [nzGutter]="8" *ngIf="!isLoading && imageList.length > 0">
+    <div nz-col [nzSpan]="6" *ngFor="let image of imageList">
+      <nz-card  class="item" [nzBordered]="false" nzHoverable>
+        <div class="ant-card-cover ng-star-inserted">
+            <img [src]="image.img_src" alt="nasa picture" class="ng-star-inserted" (click)="openPictureModal(image.img_src)">
+        </div>
+        <hr class="card-hr">
+        <div class="add-to-fav" (click)="saveToFav({img: image.img_src})">
+            <i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+            <br>
+            Ajouter aux favoris
+        </div>
+      </nz-card>
+    </div>
+  </div>
+
+  <div class="list-items" style="overflow-y: hidden !important;" nz-row [nzGutter]="8" *ngIf="isLoading">
+    <div nz-col [nzSpan]="6" *ngFor="let i of [].constructor(20)">
+      <nz-card class="item" [nzBordered]="false" nzHoverable [nzLoading]="isLoading">
+      </nz-card>
+    </div>
+  </div>
+
+  <nz-empty class="no-image" *ngIf="!isLoading && imageList.length <= 0" nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg" [nzNotFoundContent]="contentTpl"></nz-empty>
+</div>
+
+<nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="closePictureModal()" footer="null" [nzOkDisabled]="true" [nzCancelDisabled]="true" nzWidth="fit-content">
+  <ng-container *nzModalContent>
+    <img class="ng-star-inserted" [src]="image_src" alt="nasa picture">
+  </ng-container>
+</nz-modal>
+
+<ng-template #contentTpl>
+  <span>Il n'y a pas d'images à la date spécifiée !</span>
+</ng-template>

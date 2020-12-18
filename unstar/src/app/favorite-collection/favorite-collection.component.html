@@ -1,0 +1,7 @@
+<div class="fav-col-root">
+  <div class="tab-col-wrapper">
+    <h4 nz-typography>Ma Collection de photos</h4>
+    <button nz-button nzType="primary" (click)="loadFromLocal()">{{ from === 'mars'? 'Voir les photos de mars': (from === 'astronomie' ? 'Voir les photos d\'astronomie': '') }}</button>
+    <app-list-from-storage [pictList]="pictList" [from]="from"></app-list-from-storage>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="mars-pict-root">
+  <div [ngClass]="{'full-screen': date==null}" class="mars-pict-header">
+    <h2 nz-typography class="mars-pict-title">Photos de Mars</h2>
+    <p nz-typography>Filtrer par Date Date: <nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="date" (ngModelChange)="onDateChange()"></nz-date-picker></p>
+  </div>
+  <app-list-items *ngIf="date != null" [imageList]="marsPict" [isLoading]="isLoadingMarsPict" from="mars"></app-list-items>
+</div>

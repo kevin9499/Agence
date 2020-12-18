@@ -1,0 +1,26 @@
+.mars-pict-root {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: calc(100vh - (64px + 106px));
+}
+
+.mars-pict-header {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 5em;
+}
+
+.mars-pict-header.full-screen {
+  min-height: calc(100vh - (64px + 106px + 5em));
+}
+
+app-list-items {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  margin-top: 5em;
+}

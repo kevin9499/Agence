@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+/* html,
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+} */
+.ant-modal-footer {
+  display: none !important;
+}
+
+.ant-skeleton-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+nz-skeleton-element {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.ant-tabs {
+  width: 100% !important;
+}
+
+.ant-tabs-nav-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+[nz-carousel-content] {
+  max-height: 20rem;
+}
+
+.ant-carousel {
+  max-height: 20em;
+}

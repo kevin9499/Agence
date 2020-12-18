@@ -1,0 +1,29 @@
+<div class="astronomie-pict-root">
+  <div [ngClass]="{'full-screen': date==null}" class="astronomie-pict-header">
+    <h2 nz-typography class="astronomie-pict-title">Photos de astronomie</h2>
+    <p nz-typography>Filtrer par Date Date: <nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="date"
+        (ngModelChange)="onDateChange()"></nz-date-picker>
+    </p>
+  </div>
+  <div class="container">
+    <div class="picture-container">
+      <nz-skeleton-element nzType="image" nzActive="true" style="width:120em !important; height: 20em !important" *ngIf="isLoadingAstronomiePict && date != null"></nz-skeleton-element>
+      <div class="pict-info" *ngIf="!isLoadingAstronomiePict && astronomiePict.url !== '' && astronomiePict.media_type !== 'video'">
+        <img class="astro-pict" [src]="astronomiePict.url" alt="nasa pict">
+        <div class="pict-meta-container">
+          <p class="pict-meta" nz-typography *ngIf="astronomiePict.title !== ''"><strong>Titre: </strong>{{ astronomiePict.title }}</p>
+          <p class="pict-meta" nz-typography *ngIf="astronomiePict.copyright !== ''"><strong>Copyright: </strong>&copy; {{ astronomiePict.copyright }}</p>
+          <p class="pict-meta meta-expli" nz-typography *ngIf="astronomiePict.explanation !== ''"><small><strong>Explication: </strong>{{ astronomiePict.explanation }}</small></p>
+        </div>
+      </div>
+      <nz-empty class="no-image" *ngIf="!isLoadingAstronomiePict && astronomiePict.url === '' && astronomiePict.media_type === 'video'"
+        nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg" [nzNotFoundContent]="contentTpl">
+      </nz-empty>
+      <button class="btn-astro"nz-button nzType="primary" nzIcon="plus-circle" (click)="saveToFav()" *ngIf="!isLoadingAstronomiePict && astronomiePict.url !== '' && astronomiePict.media_type !== 'video'">Ajouter aux favoris</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #contentTpl>
+  <span>Il n'y a pas d'images à la date spécifiée !</span>
+</ng-template>
